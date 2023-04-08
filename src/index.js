@@ -3,6 +3,8 @@ import path from 'path'
 import morgan from 'morgan';
 import { engine } from 'express-handlebars';
 import {fileURLToPath} from 'url';
+import route from './routes/index.js';
+
 
 const app = express()
 app.use(morgan('combined'))
@@ -19,9 +21,15 @@ app.set('views',path.join(`${__dirname}/resources/views`))
 
 app.use(express.static(path.join(`${__dirname}/public`)))
 
-app.get('/', (req, res) => {
-  return res.render('home')
-})
+
+app.use(express.urlencoded({
+  extended:true
+}))
+app.use(express.json())
+
+route(app)
+
+
 
 app.listen(3333)
 
