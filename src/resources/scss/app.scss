@@ -1,4 +1,12 @@
 @import 'variables';
 body {
-    color: $red-color;
+   color: $red-color;
+}
+.checkbox-select-all-option {
+   width: 300px !important;
+   margin: 0 9px;
+}
+#defaultCheck1 {
+   width: 18px;
+   height: 18px;
 }
